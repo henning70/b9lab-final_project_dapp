@@ -1,0 +1,48 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Final Project</title>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link href="./app.css" rel='stylesheet' type='text/css'>
+  <script src="./app.js"></script>
+</head>
+<body>
+  <h2>Funding Hub</h2>
+  <br>
+
+  <br><label for="proj_owner">Project Owner:</label><select class="selector" id="proj_owner" name="proj_owner" onchange='_updateBalance("proj_owner")'></select>
+  <text id="proj_owner_balance" style="text-align: left;"></text>
+  <br><br><label for="proj_goal">Goal:</label><input type="text" id="proj_goal" placeholder="Amount in wei" style="width: 330px"></input>
+  <label for="proj_deadline" style="width: 80px"> Deadline:</label><input type="text" id="proj_deadline" placeholder="e.g., 2016-12-31 00:00:00.000"></input>
+  <br>
+  <button id="createP" onclick="_createProject()">Create project</button>
+  <br>
+  
+  <hr>
+  <br><label for="proj_contributor">From:</label><select class="selector" id="proj_contributor" name="proj_contributor" onchange='_updateBalance("proj_contributor")'></select>
+  <text id="proj_contributor_balance" style="text-align: left;"></text>
+  <br><br><label for="to_addr">To:</label><input type="text" id="to_addr" placeholder="e.g. 0xcaf71a4c48d039a1bd59b176bfbcd3355077bce5" style="width: 330px"></input>
+  <label for="contribution" style="width: 80px"> Amount:</label><input type="text" id="contribution" placeholder="Amount in wei"></input>
+  <br>
+  <button id="contributeP" onclick="_contributeProject()">Contribute</button>
+  <br>
+  
+  <hr>
+  <br><label for="project_id">ID:</label><select class="selector" id="project_id" name="project_id" onchange="_getProject()" style="width: 60px"></select>
+  <br>
+  <br><label>Owner: <span class="black"></span></label><text><span id="project_owner"></span></text>
+  <br><label>Address: <span class="black"></span></label><text><span id="project_address"></span></text>
+  <br><label>Balance: <span class="black"></span></label><text><span id="project_balance"></span></text>
+  <br>
+  <br><label>Goal: <span class="black"></span></label><text><span id="project_goal"></span></text>
+  <br><label>Raised: <span class="black"></span></label><text><span id="project_raised"></span></text>
+  <br><label>Deadline: <span class="black"></span></label><text><span id="project_deadline"></span></text>
+  <br><label>Status: <span class="black"></span></label><text><span id="project_status"></span></text>
+  <br>
+  <button id="getP" onclick="_getProject()">Project details</button> <h4>Total projects: <span class="black"><text id="projectNumber"></text></h4>
+  <br>
+  <h4 id="status" style="font-weight: bold; color: red;"></h4>
+</body>
+</html>
