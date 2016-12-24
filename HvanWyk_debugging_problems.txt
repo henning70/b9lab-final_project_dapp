@@ -1,0 +1,21 @@
+Debugging Problems
+
+Exercise 1
+The if statement in the fallback function (function () {...}), should be removed as it causes any values sent to the contract to be returned to the transaction originator unless the originator is the owner of the contract.
+
+Line causing this behaviour:
+if (msg.sender != owner) throw;
+
+Exercise 2
+In older versions of solidity (<=0.3.5) the purchase would be shipped even if "wallet.send(msg.value)" fails. To ensure a shipment only takes place when payment is successful is to check the outcome of the payment. Modifying "send" as indicated below should ensure shipment only upon successful payment.
+
+if (!wallet.send(msg.value)) throw;
+
+Execise 3
+The contract contains a program error in the constructor function which will cause a throw whenever a value is sent to the contract, "if (msg.value > 0) throw;)". Maybe an attacker can misuse this to send negative values to the contract. See: https://github.com/jonasnick/eth-neg-value-tx
+
+Other possibility is overflow or underflow. Also no balance check on the sender. This code snippet could be used to prevent this:
+
+if (balance[msg.sender] < _value || balance[_to] + _value < balance[_to]) throw;
+
+All of this can be used by an attacker to game the contract as far as I can tell.
