@@ -1,5 +1,9 @@
 ### Final Project - Funding Hub
 
+***GitHub Link:*** https://github.com/henning70/b9lab-final_project_dapp
+
+***NOTE:*** Please ignore the *enyojs* stuff. I wanted to build my DAPP frontend using the *enyojs* javascript framework but due to time constraints I did not get too far with it. This is still a full-on *truffle* project.
+
 Using browser-solidity the contracts worked as expected. From the DAPP most features work as expected but sometimes not quite. 
 
 **Still to add / issues / vulnerabilities:**
