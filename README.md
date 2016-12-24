@@ -61,10 +61,15 @@ The contract is far from perfect but does seem to do what it is suppose to do.
 
 **The migration script:**
 
-2_deploy_contracts.js
+*2_deploy_contracts.js*
 
 I could have opted for a seperate migrations script but decided to modify this script too suit my needs. The migration script, will first deploy the *Projects* contract. It will then deploy the *FundingHub* contract and once completed create a new *Project* contract using the *createProject()* function from the deployed *FundingHub*. Once the new *Project* contract has been deployed, the *getProjectDetails()* function from the deployed *FundingHub* will be called to retrieve information of the newly deployed *Project* contract and then send some wei to the *Project* contract.
 
+**The test**
+
+*test_refund.js*
+
+I wrote a test which is not 100% completed due to time constraints. I was also hampered by timeouts on *testnet*. Using *testrpc* did not help either as it continuously gave me *out of gas* errors. Using my *private net* I had more luck with the test but just ran out of time to get the *refund* check done.
 
 **The interface:**
 
